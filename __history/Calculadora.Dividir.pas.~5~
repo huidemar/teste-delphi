@@ -1,0 +1,36 @@
+unit Calculadora.Dividir;
+
+interface
+
+uses Calculadora.ICalculadora;
+
+type
+  TDividir = class(TCalculadora)
+  private
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function Operacao(Numero1, Numero2: Currency): Currency;
+  end;
+
+implementation
+
+{ TDividir }
+
+constructor TDividir.Create;
+begin
+
+end;
+
+destructor TDividir.Destroy;
+begin
+
+  inherited;
+end;
+
+function TDividir.Operacao(Numero1, Numero2: Currency): Currency;
+begin
+  Result := Numero1 / Numero2;
+end;
+
+end.

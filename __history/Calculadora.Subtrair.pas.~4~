@@ -1,0 +1,36 @@
+unit Calculadora.Subtrair;
+
+interface
+
+uses Calculadora.ICalculadora;
+
+type
+  TSubtrair = class(TCalculadora)
+  private
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function Operacao(Numero1, Numero2: Currency): Currency;
+  end;
+
+implementation
+
+{ TSubtrair }
+
+constructor TSubtrair.Create;
+begin
+
+end;
+
+destructor TSubtrair.Destroy;
+begin
+
+  inherited;
+end;
+
+function TSubtrair.Operacao(Numero1, Numero2: Currency): Currency;
+begin
+  Result := Numero1 - Numero2;
+end;
+
+end.

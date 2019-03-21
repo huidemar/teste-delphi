@@ -1,0 +1,23 @@
+unit Dividir;
+
+interface
+
+uses Calculadora;
+
+type
+  TDividir = class(TCalculadora)
+  private
+  public
+    function Operacao(Numero1, Numero2: Currency): Currency; override;
+  end;
+
+implementation
+
+{ TDividir }
+
+function TDividir.Operacao(Numero1, Numero2: Currency): Currency;
+begin
+  Result := Numero1 / Numero2;
+end;
+
+end.

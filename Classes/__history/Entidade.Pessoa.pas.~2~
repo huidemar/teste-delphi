@@ -1,0 +1,37 @@
+unit Entidade.Pessoa;
+
+interface
+
+type
+  TPessoa = class
+  private
+    FNome: String;
+    procedure SetNome(const Value: String);
+
+  public
+    property Nome: String read FNome write SetNome;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TPessoa }
+
+constructor TPessoa.Create;
+begin
+
+end;
+
+destructor TPessoa.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TPessoa.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+end.

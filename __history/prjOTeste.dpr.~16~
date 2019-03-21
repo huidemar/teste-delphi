@@ -1,0 +1,26 @@
+program prjOTeste;
+
+uses
+  Vcl.Forms,
+  MenuPrincipal in 'MenuPrincipal.pas' {FMenuPrincipal},
+  Base in 'Base.pas' {FBase},
+  CadCalculadora in 'CadCalculadora.pas' {FCadCalculadora},
+  Calculadora.Calculadora in 'Calculadora.Calculadora.pas',
+  Calculadora.Somar in 'Calculadora.Somar.pas',
+  Calculadora.Subtrair in 'Calculadora.Subtrair.pas',
+  Calculadora.Multiplicar in 'Calculadora.Multiplicar.pas',
+  Calculadora.Dividir in 'Calculadora.Dividir.pas',
+  Calculadora.Operacoes in 'Calculadora.Operacoes.pas',
+  Calculadora.Imposto in 'Calculadora.Imposto.pas',
+  Calculadora.ImpostoB in 'Calculadora.ImpostoB.pas',
+  Calculadora.ImpostoC in 'Calculadora.ImpostoC.pas',
+  Calculadora.ImpostoA in 'Calculadora.ImpostoA.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFMenuPrincipal, FMenuPrincipal);
+  Application.Run;
+end.

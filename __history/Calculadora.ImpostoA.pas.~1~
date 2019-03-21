@@ -1,0 +1,14 @@
+unit Calculadora.ImpostoA;
+
+interface
+
+type
+  TImpostoA = class(TImposto)
+  private
+  public
+    function Operacao: Double; override;
+  end;
+
+implementation
+
+end.

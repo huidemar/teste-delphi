@@ -1,0 +1,37 @@
+unit Calculadora.Multiplicar;
+
+interface
+
+uses Calculadora.Calculadora;
+
+type
+  TMultiplicar = class(TCalculadora)
+  private
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function Operacao(Numero1, Numero2: Currency): Currency;
+  end;
+
+implementation
+
+{ TMultiplicar }
+
+constructor TMultiplicar.Create;
+begin
+
+end;
+
+destructor TMultiplicar.Destroy;
+begin
+
+  inherited;
+end;
+
+function TMultiplicar.Operacao(Numero1, Numero2: Currency): Currency;
+begin
+  Result := Numero1 * Numero2;
+  SetResultado(Result);
+end;
+
+end.

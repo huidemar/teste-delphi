@@ -1,0 +1,219 @@
+inherited FCadEntidades: TFCadEntidades
+  Caption = 'FCadEntidades'
+  ClientHeight = 445
+  ClientWidth = 969
+  OnShow = FormShow
+  ExplicitWidth = 985
+  ExplicitHeight = 483
+  PixelsPerInch = 96
+  TextHeight = 18
+  inherited pnTitulo: TPanel
+    Width = 969
+    Caption = 'Cadastro de Entidades'
+  end
+  inherited pnMeio: TPanel
+    Width = 969
+    Height = 404
+    ExplicitWidth = 879
+    ExplicitHeight = 185
+    object ToolBar1: TToolBar
+      Left = 1
+      Top = 352
+      Width = 967
+      Height = 51
+      CustomHint = BalloonHint1
+      Align = alBottom
+      ButtonHeight = 48
+      Caption = 'ToolBar1'
+      TabOrder = 0
+      ExplicitTop = 286
+      object btnSalvar: TButton
+        Left = 0
+        Top = 0
+        Width = 75
+        Height = 48
+        CustomHint = BalloonHint1
+        Caption = 'Salvar'
+        TabOrder = 0
+        OnClick = btnSalvarClick
+      end
+      object btnCalcularImposto: TButton
+        Left = 75
+        Top = 0
+        Width = 151
+        Height = 48
+        CustomHint = BalloonHint1
+        Caption = 'Calcular Imposto'
+        TabOrder = 1
+      end
+    end
+    object Panel1: TPanel
+      Left = 1
+      Top = 1
+      Width = 967
+      Height = 351
+      CustomHint = BalloonHint1
+      Align = alClient
+      BevelKind = bkFlat
+      TabOrder = 1
+      ExplicitHeight = 285
+      object gbDependentes: TGroupBox
+        Left = 1
+        Top = 106
+        Width = 961
+        Height = 150
+        CustomHint = BalloonHint1
+        Align = alTop
+        Caption = '[ Dependentes ]'
+        TabOrder = 0
+        ExplicitTop = 126
+        object edtDependenteNome: TLabeledEdit
+          Left = 185
+          Top = 30
+          Width = 400
+          Height = 26
+          Hint = 'Nome do Dependente'
+          CustomHint = BalloonHint1
+          EditLabel.Width = 154
+          EditLabel.Height = 18
+          EditLabel.CustomHint = BalloonHint1
+          EditLabel.Caption = 'Nome do Dependente'
+          LabelPosition = lpLeft
+          MaxLength = 60
+          TabOrder = 0
+          TextHint = 'Digite o nome'
+        end
+        object chkCalcularIR: TCheckBox
+          Left = 104
+          Top = 67
+          Width = 97
+          Height = 17
+          Hint = 'Calcular IR'
+          CustomHint = BalloonHint1
+          BiDiMode = bdRightToLeft
+          Caption = 'Calcular IR'
+          ParentBiDiMode = False
+          TabOrder = 1
+        end
+        object chkCalcularINSS: TCheckBox
+          Left = 85
+          Top = 90
+          Width = 116
+          Height = 17
+          Hint = 'Calcular INSS'
+          CustomHint = BalloonHint1
+          BiDiMode = bdRightToLeft
+          Caption = 'Calcular INSS'
+          ParentBiDiMode = False
+          TabOrder = 2
+        end
+        object btnNovoDependente: TButton
+          Left = 115
+          Top = 122
+          Width = 51
+          Height = 25
+          Hint = 'Novo Dependente'
+          CustomHint = BalloonHint1
+          Caption = '+'
+          TabOrder = 3
+          OnClick = btnNovoDependenteClick
+        end
+      end
+      object gbFuncionario: TGroupBox
+        Left = 1
+        Top = 1
+        Width = 961
+        Height = 105
+        CustomHint = BalloonHint1
+        Align = alTop
+        Caption = '[ Funcion'#225'rio ]'
+        TabOrder = 1
+        object edtFuncionarioNome: TLabeledEdit
+          Left = 185
+          Top = 65
+          Width = 400
+          Height = 26
+          Hint = 'Nome do Funcion'#225'rio'
+          CustomHint = BalloonHint1
+          EditLabel.Width = 150
+          EditLabel.Height = 18
+          EditLabel.CustomHint = BalloonHint1
+          EditLabel.Caption = 'Nome do Funcion'#225'rio'
+          LabelPosition = lpLeft
+          MaxLength = 60
+          TabOrder = 1
+          TextHint = 'Digite o nome'
+        end
+        object edtFuncionarioCPF: TLabeledEdit
+          Left = 185
+          Top = 33
+          Width = 281
+          Height = 26
+          Hint = 'Digite o CPF (Apenas N'#250'meros)'
+          CustomHint = BalloonHint1
+          EditLabel.Width = 33
+          EditLabel.Height = 18
+          EditLabel.CustomHint = BalloonHint1
+          EditLabel.Caption = 'CPF'
+          LabelPosition = lpLeft
+          MaxLength = 11
+          NumbersOnly = True
+          TabOrder = 0
+          TextHint = 'Digite apenas n'#250'meros'
+        end
+      end
+      object gbImposto: TGroupBox
+        Left = 1
+        Top = 256
+        Width = 961
+        Height = 375
+        CustomHint = BalloonHint1
+        Align = alTop
+        Caption = '[ Imposto ]'
+        TabOrder = 2
+        ExplicitLeft = 587
+        ExplicitWidth = 90
+        object edtTotalIR: TLabeledEdit
+          Left = 185
+          Top = 20
+          Width = 121
+          Height = 27
+          CustomHint = BalloonHint1
+          EditLabel.Width = 50
+          EditLabel.Height = 18
+          EditLabel.CustomHint = BalloonHint1
+          EditLabel.Caption = 'Total IR'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Arial'
+          Font.Style = []
+          LabelPosition = lpLeft
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+        end
+        object edtTotalINSS: TLabeledEdit
+          Left = 185
+          Top = 53
+          Width = 121
+          Height = 27
+          CustomHint = BalloonHint1
+          EditLabel.Width = 72
+          EditLabel.Height = 18
+          EditLabel.CustomHint = BalloonHint1
+          EditLabel.Caption = 'Total INSS'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Arial'
+          Font.Style = []
+          LabelPosition = lpLeft
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 1
+        end
+      end
+    end
+  end
+end

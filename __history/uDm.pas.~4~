@@ -1,0 +1,74 @@
+unit uDm;
+
+interface
+
+uses
+  System.Rtti,
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
+  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
+
+type
+  TCrud = class
+    class function Insert(Obj: TObject): string;
+  end;
+
+  TDm = class(TDataModule)
+    TheosConnection: TFDConnection;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Dm: TDm;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TCrud }
+
+class function TCrud.Insert(Obj: TObject): string;
+var
+  Ctx: TRttiContext;
+  Typ: TRttiType;
+  Prop: TRttiProperty;
+  Att: TCustomAttribute;
+  Str: TStringBuilder;
+  IDField: string;
+begin
+  try
+    Str := TStringBuilder.Create;
+    Ctx := TRttiContext.Create;
+    Typ := Ctx.GetType(Obj.ClassType);
+    for Prop in Typ.GetProperties do
+      begin
+        if Prop.PropertyType.TypeKind <> tkClass then
+          begin
+            IDField := '';
+            for Att in Prop.GetAttributes do
+              begin
+                if Att is TIDAtributo then
+                  begin
+                    TIDAtributo(Att).Eventos.TryGetValue(TipoEvento, IDField);
+                    if (Trim(IDField)='') then
+                      TIDAtributo(Att).Eventos.TryGetValue('padrao', IDField);
+                  end;
+              end;
+            Str.AppendLine;
+            Str.Append(Prop.name+'_'+IDField+'=');
+            Str.Append(Prop.GetValue(Obj).ToString);
+          end;
+      end;
+    Result := Result + Str.ToString;
+  finally
+    Str.Free;
+  end;
+end;
+
+end.

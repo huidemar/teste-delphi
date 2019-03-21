@@ -1,0 +1,47 @@
+unit Entidade.Funcionario;
+
+interface
+
+uses Entidade.Pessoa, System.SysUtils;
+
+type
+  TFuncionario = class(TPessoa)
+  private
+    FCPF: String;
+    FSalario: Currency;
+    procedure SetCPF(const Value: String);
+    procedure SetSalario(const Value: Currency);
+  public
+    property CPF: String read FCPF write SetCPF;
+    property Salario: Currency read FSalario write SetSalario;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TFuncionario }
+
+constructor TFuncionario.Create;
+begin
+
+end;
+
+destructor TFuncionario.Destroy;
+begin
+  inherited;
+end;
+
+procedure TFuncionario.SetCPF(const Value: String);
+begin
+  FCPF := Value;
+end;
+
+procedure TFuncionario.SetSalario(const Value: Currency);
+begin
+  if Value <= 0 then
+    raise Exception.Create('Salário não pode ser menor igual a zero !');
+  FSalario := Value;
+end;
+
+end.

@@ -1,0 +1,14 @@
+unit Calculadora.ImpostoB;
+
+interface
+
+uses Calculadora.Imposto;
+
+type
+  TImpostoB = class(TImposto)
+
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,32 @@
+unit Entidade.Dependente;
+
+interface
+
+uses Entidade.Pessoa;
+
+type
+  TDependente = class(TPessoa)
+  private
+  public
+    property IsCalculaIR: boolean;
+    property IsCalculaINSS: boolean;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TDependente }
+
+constructor TDependente.Create;
+begin
+
+end;
+
+destructor TDependente.Destroy;
+begin
+
+  inherited;
+end;
+
+end.

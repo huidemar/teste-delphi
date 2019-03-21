@@ -1,0 +1,19 @@
+unit Calculadora;
+
+interface
+
+type
+  iCalculadora = interface
+    ['{FDAE6270-D9F4-4C44-9FA6-C61B61A76488}']
+    function Operacao(Numero1, Numero2: Currency): Currency;
+  end;
+
+  TCalculadora = class(TInterfacedObject, iCalculadora)
+  private
+  public
+    function Operacao(Numero1, Numero2: Currency): Currency;
+  end;
+
+implementation
+
+end.

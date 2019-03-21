@@ -1,0 +1,35 @@
+unit Calculadora.Somar;
+
+interface
+
+uses Calculadora.Calculadora;
+
+type
+  TSomar = class(TCalculadora)
+  private
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function Operacao(Numero1, Numero2: Double): Double; override;
+  end;
+
+implementation
+
+{ TSomar }
+
+constructor TSomar.Create;
+begin
+
+end;
+
+destructor TSomar.Destroy;
+begin
+
+end;
+
+function TSomar.Operacao(Numero1, Numero2: Double): Double;
+begin
+  Result := Numero1 + Numero2;
+end;
+
+end.

@@ -1,0 +1,23 @@
+unit Multiplicar;
+
+interface
+
+uses Calculadora.ICalculadora;
+
+type
+  TMultiplicar = class(TInterfacedObject, iCalculadora)
+  private
+  public
+    function Operacao(Numero1, Numero2: Currency): Currency;
+  end;
+
+implementation
+
+{ TMultiplicar }
+
+function TMultiplicar.Operacao(Numero1, Numero2: Currency): Currency;
+begin
+  Result := Numero1 * Numero2;
+end;
+
+end.

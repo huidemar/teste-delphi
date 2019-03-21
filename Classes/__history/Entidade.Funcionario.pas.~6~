@@ -1,0 +1,59 @@
+unit Entidade.Funcionario;
+
+interface
+
+uses Entidade.Pessoa, Entidade.Dependente, System.Generics.Collections;
+
+type
+  TFuncionario = class(TPessoa)
+  private
+    FCPF: String;
+    FSalario: Currency;
+    FListaDependente: TList<TDependente>;
+    procedure SetCPF(const Value: String);
+    procedure SetSalario(const Value: Currency);
+    procedure SetListaDependente(const Value: TList<TDependente>);
+  public
+    property CPF: String read FCPF write SetCPF;
+    property Salario: Currency read FSalario write SetSalario;
+    property ListaDependente: TList<TDependente> read FListaDependente write SetListaDependente;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TFuncionario }
+
+constructor TFuncionario.Create;
+begin
+
+end;
+
+destructor TFuncionario.Destroy;
+var
+  d: TDependente;
+begin
+  for d in ListaDependente do
+    begin
+      d.Free;
+    end;
+  inherited;
+end;
+
+procedure TFuncionario.SetCPF(const Value: String);
+begin
+  FCPF := Value;
+end;
+
+procedure TFuncionario.SetListaDependente(const Value: TList<TDependente>);
+begin
+  FListaDependente := Value;
+end;
+
+procedure TFuncionario.SetSalario(const Value: Currency);
+begin
+  FSalario := Value;
+end;
+
+end.

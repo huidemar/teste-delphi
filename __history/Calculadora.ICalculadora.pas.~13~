@@ -1,0 +1,48 @@
+unit Calculadora.ICalculadora;
+
+interface
+
+type
+  iCalculadora = interface
+    ['{FDAE6270-D9F4-4C44-9FA6-C61B61A76488}']
+    function GetResultado:Currency;
+    function Operacao(Numero1, Numero2: Currency): Currency;
+  end;
+
+  TCalculadora = class(TInterfacedObject, iCalculadora)
+  private
+    class var FResultado: Currency;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function GetResultado:Currency;
+    function Operacao(Numero1, Numero2: Currency): Currency; virtual;
+  end;
+
+
+implementation
+
+{ TCalculadora }
+
+constructor TCalculadora.Create;
+begin
+  FResultado := 0;
+end;
+
+destructor TCalculadora.Destroy;
+begin
+
+  inherited;
+end;
+
+function TCalculadora.GetResultado: Currency;
+begin
+  Result := FResultado;
+end;
+
+function TCalculadora.Operacao(Numero1, Numero2: Currency): Currency;
+begin
+  FResultado := FResultado + Result;
+end;
+
+end.

@@ -1,0 +1,10 @@
+unit Calculadora.Operacoes;
+
+interface
+
+type
+  TCalculadoraOperacao = (tcoSomar, tcoSubtrair, tcoMultiplicar, tcoDividir);
+
+implementation
+
+end.

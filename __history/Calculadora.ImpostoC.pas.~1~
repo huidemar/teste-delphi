@@ -1,0 +1,22 @@
+unit Calculadora.ImpostoC;
+
+interface
+uses Calculadora.Imposto;
+
+type
+  TImpostoC = class(TImposto)
+  private
+  public
+    function Operacao: Double; override;
+  end;
+
+implementation
+
+{ TImpostoC }
+
+function TImpostoC.Operacao: Double;
+begin
+  Result := GetImpostoC;
+end;
+
+end.

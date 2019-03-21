@@ -1,0 +1,38 @@
+unit MenuPrincipal;
+
+interface
+
+uses
+  CadCalculadora,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TFMenuPrincipal = class(TForm)
+    btCalculadora: TButton;
+    Button1: TButton;
+    procedure btCalculadoraClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FMenuPrincipal: TFMenuPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFMenuPrincipal.btCalculadoraClick(Sender: TObject);
+begin
+  try
+    Application.CreateForm(TFCadCalculadora, FCadCalculadora);
+    FCadCalculadora.ShowModal;
+  finally
+    FreeAndNil(FCadCalculadora)
+  end;
+end;
+
+end.

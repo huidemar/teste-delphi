@@ -1,0 +1,50 @@
+object FBase: TFBase
+  Left = 0
+  Top = 0
+  CustomHint = BalloonHint1
+  Caption = 'FBase'
+  ClientHeight = 239
+  ClientWidth = 533
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'Arial'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  ShowHint = True
+  PixelsPerInch = 96
+  TextHeight = 18
+  object pnTitulo: TPanel
+    Left = 0
+    Top = 0
+    Width = 533
+    Height = 41
+    CustomHint = BalloonHint1
+    Align = alTop
+    Caption = 'pnTitulo'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object pnMeio: TPanel
+    Left = 0
+    Top = 41
+    Width = 533
+    Height = 198
+    CustomHint = BalloonHint1
+    Align = alClient
+    TabOrder = 1
+    ExplicitHeight = 189
+  end
+  object BalloonHint1: TBalloonHint
+    Style = bhsStandard
+    Left = 455
+    Top = 71
+  end
+end

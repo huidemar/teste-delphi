@@ -1,0 +1,43 @@
+unit Calculadora.Calculadora;
+
+interface
+
+type
+  TCalculadora = class
+  private
+    class var FResultado: Currency;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    class procedure SetResultado(Valor: Currency);
+    class function GetResultado:Currency;
+    function Operacao(Numero1, Numero2: Currency): Currency; virtual; abstract;
+  end;
+
+
+implementation
+
+{ TCalculadora }
+
+constructor TCalculadora.Create;
+begin
+  FResultado := 0;
+end;
+
+destructor TCalculadora.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TCalculadora.GetResultado: Currency;
+begin
+  Result := FResultado;
+end;
+
+class procedure TCalculadora.SetResultado(Valor: Currency);
+begin
+  FResultado := Valor;
+end;
+
+end.

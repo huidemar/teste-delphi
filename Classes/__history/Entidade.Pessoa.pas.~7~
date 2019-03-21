@@ -1,0 +1,54 @@
+unit Entidade.Pessoa;
+
+interface
+
+uses System.SysUtils;
+
+type
+  TPessoa = class
+  private
+    FNome: String;
+    FID: Integer;
+    procedure SetNome(const Value: String);
+  public
+    property ID: Integer read FID write FID;
+    property Nome: String read FNome write SetNome;
+    function ToString: String; override;
+    constructor Create;
+    destructor Destroy; override;
+    function Salvar:Boolean;
+  end;
+
+implementation
+
+{ TPessoa }
+
+constructor TPessoa.Create;
+begin
+
+end;
+
+destructor TPessoa.Destroy;
+begin
+
+  inherited;
+end;
+
+function TPessoa.Salvar: Boolean;
+begin
+//
+end;
+
+procedure TPessoa.SetNome(const Value: String);
+begin
+  if (Trim(Value)='') then
+    raise Exception.Create('Nome não pode ser Vazio');
+  FNome := Value;
+end;
+
+function TPessoa.ToString: String;
+begin
+  Result := Copy(ClassName, 2, Length(ClassName));
+end;
+
+end.

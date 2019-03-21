@@ -1,0 +1,95 @@
+﻿unit CadEntidades;
+
+interface
+
+uses
+  Entidade.Funcionario,
+  Entidade.Dependente,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Base, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.ToolWin, Vcl.ComCtrls;
+
+type
+  TFCadEntidades = class(TFBase)
+    ToolBar1: TToolBar;
+    Panel1: TPanel;
+    gbDependentes: TGroupBox;
+    edtDependenteNome: TLabeledEdit;
+    chkCalcularIR: TCheckBox;
+    chkCalcularINSS: TCheckBox;
+    gbFuncionario: TGroupBox;
+    edtFuncionarioNome: TLabeledEdit;
+    edtFuncionarioCPF: TLabeledEdit;
+    btnSalvar: TButton;
+    btnNovoDependente: TButton;
+    gbImposto: TGroupBox;
+    edtTotalIR: TLabeledEdit;
+    edtTotalINSS: TLabeledEdit;
+    btnCalcularImposto: TButton;
+    edtFuncionarioSalario: TLabeledEdit;
+    procedure btnNovoDependenteClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CampoInvalido(Edit : TLabeledEdit);
+  public
+    { Public declarations }
+    Funcionario: TFuncionario;
+    procedure VerificarCampos;
+    procedure Salvar;
+  end;
+
+var
+  FCadEntidades: TFCadEntidades;
+
+const MSG_OBRIGATORIO = ' é obrigário!';
+implementation
+
+{$R *.dfm}
+
+procedure TFCadEntidades.btnNovoDependenteClick(Sender: TObject);
+begin
+  VerificarCampos;
+end;
+
+procedure TFCadEntidades.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  VerificarCampos;
+  Salvar;
+end;
+
+procedure TFCadEntidades.CampoInvalido(Edit: TLabeledEdit);
+begin
+  ShowMessage(Edit.EditLabel.Caption + MSG_OBRIGATORIO);
+  Edit.SetFocus;
+  abort;
+end;
+
+procedure TFCadEntidades.FormShow(Sender: TObject);
+begin
+  inherited;
+  Funcionario := TFuncionario.Create;
+end;
+
+procedure TFCadEntidades.Salvar;
+begin
+  Funcionario.CPF := edtFuncionarioCPF.Text;
+  Funcionario.Nome := edtFuncionarioNome.Text;
+end;
+
+procedure TFCadEntidades.VerificarCampos;
+begin
+  if Trim(edtFuncionarioCPF.Text)='' then
+    CampoInvalido(edtFuncionarioCPF)
+  else if Trim(edtFuncionarioNome.Text)='' then
+    CampoInvalido(edtFuncionarioNome)
+  else if (StrToFloat(edtFuncionarioSalario.Text, 0)=0) then
+    CampoInvalido(edtFuncionarioSalario)
+  else if Trim(edtDependenteNome.Text)='' then
+    CampoInvalido(edtDependenteNome);
+
+end;
+
+end.

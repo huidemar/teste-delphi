@@ -1,0 +1,29 @@
+unit Calculadora.Calculadora;
+
+interface
+
+type
+  TCalculadora = class
+  private
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function Operacao(Numero1, Numero2: Double): Double; overload; virtual; abstract;
+  end;
+
+
+implementation
+
+{ TCalculadora }
+
+constructor TCalculadora.Create;
+begin
+end;
+
+destructor TCalculadora.Destroy;
+begin
+
+  inherited;
+end;
+
+end.

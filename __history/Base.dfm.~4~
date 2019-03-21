@@ -1,0 +1,28 @@
+object FBase: TFBase
+  Left = 0
+  Top = 0
+  Caption = 'FBase'
+  ClientHeight = 202
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'Arial'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 18
+  object pnTitulo: TPanel
+    Left = 0
+    Top = 0
+    Width = 447
+    Height = 41
+    Align = alTop
+    Caption = 'pnTitulo'
+    TabOrder = 0
+    ExplicitLeft = 110
+    ExplicitTop = 10
+    ExplicitWidth = 185
+  end
+end

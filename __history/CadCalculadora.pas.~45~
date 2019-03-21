@@ -1,0 +1,125 @@
+unit CadCalculadora;
+
+interface
+
+uses
+  Calculadora.Operacoes,
+  Calculadora.Calculadora,
+  Calculadora.Somar,
+  Calculadora.Subtrair,
+  Calculadora.Multiplicar,
+  Calculadora.Dividir,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Base, Vcl.ExtCtrls, Vcl.StdCtrls,
+  System.Actions, Vcl.ActnList;
+
+type
+  TFCadCalculadora = class(TFBase)
+    edtVisor: TLabeledEdit;
+    btn7: TButton;
+    btn8: TButton;
+    btn9: TButton;
+    btn4: TButton;
+    btn5: TButton;
+    btn6: TButton;
+    btn1: TButton;
+    btn2: TButton;
+    btn3: TButton;
+    btnLimpar: TButton;
+    btnDividir: TButton;
+    btMultiplicar: TButton;
+    btnSomar: TButton;
+    btnSubtrair: TButton;
+    btnIgual: TButton;
+    btn0: TButton;
+    edtResultado: TLabeledEdit;
+    procedure actSomarExecute(Sender: TObject);
+    procedure actSubtrairExecute(Sender: TObject);
+    procedure actMultiplicarExecute(Sender: TObject);
+    procedure actDividirExecute(Sender: TObject);
+    procedure actCalcularExecute(Sender: TObject);
+    procedure btnSomarClick(Sender: TObject);
+    procedure btnSubtrairClick(Sender: TObject);
+  private
+    FOperacaoAnterior: TCalculadoraOperacao;
+    FOperacaoAtual: TCalculadoraOperacao;
+    FCalculadora: TCalculadora;
+
+    procedure Operacao;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FCadCalculadora: TFCadCalculadora;
+
+implementation
+
+{$R *.dfm}
+
+{ TFCadCalculadora }
+
+procedure TFCadCalculadora.actCalcularExecute(Sender: TObject);
+begin
+  inherited;
+//  case (Trim(TButton(Sender).Caption)) of
+//    '+': ShowMessage('Somar');
+//    '-': ShowMessage('Subtrair');
+//    '*': ShowMessage('Multiplicar');
+//    '/':  ShowMessage('Dividir');
+//  end;
+end;
+
+procedure TFCadCalculadora.actDividirExecute(Sender: TObject);
+begin
+  inherited;
+  FCalculadora := TDividir.Create;
+  Operacao;
+end;
+
+procedure TFCadCalculadora.actMultiplicarExecute(Sender: TObject);
+begin
+  inherited;
+  FCalculadora := TMultiplicar.Create;
+  Operacao;
+  FCalculadora.Free;
+end;
+
+procedure TFCadCalculadora.Operacao;
+begin
+//  edtResultado.Text := CurrToStr( Calculadora.Operacao(StrToCurrDef(edtNumero1.Text,0), StrToCurrDef(edtNumero2.Text,0)) );
+end;
+
+procedure TFCadCalculadora.actSomarExecute(Sender: TObject);
+begin
+  inherited;
+
+  FCalculadora := TSomar.Create;
+  Operacao;
+  //edtNumero1.Text := CurrToStr(FCalculadora.GetResultado);
+  FCalculadora.Free;
+end;
+
+procedure TFCadCalculadora.actSubtrairExecute(Sender: TObject);
+begin
+  inherited;
+  FCalculadora := TSubtrair.Create;
+  Operacao;
+  //edtNumero1.Text := CurrToStr(FCalculadora.GetResultado);
+  FCalculadora.Free;
+end;
+
+procedure TFCadCalculadora.btnSomarClick(Sender: TObject);
+begin
+  inherited;
+  FOperacaoAtual := tcoSomar;
+end;
+
+procedure TFCadCalculadora.btnSubtrairClick(Sender: TObject);
+begin
+  inherited;
+  FOperacaoAtual := tcoSubtrair;
+end;
+
+end.

@@ -1,0 +1,34 @@
+unit Entidade.Dependente;
+
+interface
+
+uses Entidade.Pessoa;
+
+type
+  TDependente = class(TPessoa)
+  private
+    FIsCalculaINSS: boolean;
+    FIsCalculaIR: boolean;
+  public
+    property IsCalculaIR: boolean read FIsCalculaIR write FIsCalculaIR;
+    property IsCalculaINSS: boolean read FIsCalculaINSS write FIsCalculaINSS;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TDependente }
+
+constructor TDependente.Create;
+begin
+
+end;
+
+destructor TDependente.Destroy;
+begin
+
+  inherited;
+end;
+
+end.
