@@ -1,0 +1,8 @@
+Versão do Banco de dados Utilizada: Firebird 2.1 (Conexao com FireDac)
+Na pasta raíz existe um arquivo .ini com as configurações que eu utilizei para conectar com o FireDac
+Delphi: Seattle
+Na pasta dados, está o script para a gerar o banco e o banco utilizado durante o desenvolvimento.
+
+Fiz o Exercício 1 e o Exercício 2, não fiz o Teste Unitário.
+
+Caso tenha alguma dúvida favor entrar em contato.
